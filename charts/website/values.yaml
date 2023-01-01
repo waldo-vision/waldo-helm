@@ -15,7 +15,9 @@ nameOverride: ""
 fullnameOverride: ""
 
 secret:
+  # name of the secret
   name: "waldo-website-secrets"
+  # whether to use our in built secrets file or not
   useBuiltInSecret: true
 
 # These are the env vars passed here:
