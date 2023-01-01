@@ -14,51 +14,55 @@ imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
 
-# # These are essentially the env vars passed here:
+secret:
+  name: "waldo-website-secrets"
+  useBuiltInSecret: true
+
+# # These are the env vars passed here:
 # # https://github.com/waldo-vision/waldo/blob/master/apps/web/.env.example
 # # all of these values are stored as secrets
 # # see secret format in templates/secret.yaml
-# siteConfig:
-#   discord:
-#     # oauth
-#     clientId: ""
-#     clientSecret: ""
-#   google:
-#     # oauth
-#     clientId: ""
-#     clientSecret: ""
-#     # yt v3 api key
-#     ytApiKey: ""
-#   github:
-#     # oauth
-#     clientId: ""
-#     clientSecret: ""
-#   btlnet:
-#     # oauth
-#     clientId: ""
-#     clientSecret: ""
-#   twitch:
-#     # oauth
-#     clientId: ""
-#     clientSecret: ""
-#   facebook:
-#     # oauth
-#     clientId: ""
-#     clientSecret: ""
-#   cloudflare:
-#     turnstileSecret: ""
-#     turnstileSiteKey: ""
-#   database:
-#     # cockroachdb connection url
-#     url: ""
-#   nextauth:
-#     # website url
-#     url: ""
-#     # jwt secret
-#     secret: ""
-#   upstash:
-#     url: ""
-#     token: ""
+# #
+# # These values below MUST be defined else the deployment
+# # won't pull env vars as secrets. They can be blank and defined
+# # in your own secrets file.
+env:
+  # discord
+  DISCORD_CLIENT_ID: ""
+  DISCORD_CLIENT_SECRET: ""
+
+  # google
+  GOOGLE_CLIENT_ID: ""
+  GOOGLE_CLIENT_SECRET: ""
+
+  YOUTUBE_API_KEY: ""
+
+  GITHUB_CLIENT_ID: ""
+  GITHUB_CLIENT_SECRET: ""
+
+  BTLNET_CLIENT_ID: ""
+  BTLNET_CLIENT_SECRET: ""
+
+  TWITCH_CLIENT_ID: ""
+  TWITCH_CLIENT_SECRET: ""
+
+  FB_CLIENT_ID: ""
+  FB_CLIENT_SECRET: ""
+
+  # cloudflare
+  CLOUDFLARE_TURNSTILE_SECRET: ""
+  CLOUDFLARE_TURNSTILE_SITE_KEY: ""
+
+  # database
+  DATABASE_URL: ""
+
+  # next auth
+  NEXTAUTH_URL: ""
+  NEXTAUTH_SECRET: ""
+
+  # upstash
+  UPSTASH_REDIS_REST_URL: ""
+  UPSTASH_REDIS_REST_TOKEN: ""
 
 
 serviceAccount:

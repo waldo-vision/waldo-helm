@@ -60,3 +60,18 @@ Create the name of the service account to use
 {{- default "default" .Values.serviceAccount.name }}
 {{- end }}
 {{- end }}
+
+{{/*
+Pull env vars from values file and add to deployment env var list
+Also pairs them up with secrets
+*/}}
+{{- define "helpers.list-env-variables"}}
+{{- $secretName  := .Values.secret.name -}}
+{{- range $key, $val := .Values.env }}
+- name: {{ $key }}
+  valueFrom:
+    secretKeyRef:
+      name: {{ $secretName }}
+      key: {{ $key }}
+{{- end}}
+{{- end }}
