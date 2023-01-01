@@ -1,0 +1,15 @@
+apiVersion: v2
+name: http-redis
+description: HTTP-based Redis pooler. Access Redis from serverless without overloading connection limits!
+type: application
+
+
+home: https://github.com/hiett/serverless-redis-http
+sources:
+  - https://github.com/waldo-vision/waldo-helm/tree/main/charts/http-redis
+  - https://github.com/hiett/serverless-redis-http
+# chart version, should follow semver
+version: 0.0.1
+
+# app version its targeting
+appVersion: "0.0.4"
