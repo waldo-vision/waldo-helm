@@ -1,0 +1,8 @@
+{
+    "recommendations": [
+        "ms-kubernetes-tools.vscode-kubernetes-tools",
+        "editorconfig.editorconfig",
+        "hashicorp.terraform",
+        "redhat.vscode-yaml"
+    ]
+}
