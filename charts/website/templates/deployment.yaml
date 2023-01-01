@@ -33,6 +33,130 @@ spec:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
+
+          # if any changes are made, make sure to update secret.yaml and values.yaml
+          # get vars from: https://github.com/waldo-vision/waldo/blob/master/apps/web/.env.example
+          env:
+            # discord
+            - name: "DISCORD_CLIENT_ID"
+              valueFrom:
+                secretKeyRef:
+                  key:  client-id
+                  name: {{ .Release.Name }}-discord
+            - name: "DISCORD_CLIENT_SECRET"
+              valueFrom:
+                secretKeyRef:
+                  key:  client-secret
+                  name: {{ .Release.Name }}-discord
+
+            # google
+            - name: "GOOGLE_CLIENT_ID"
+              valueFrom:
+                secretKeyRef:
+                  key:  client-id
+                  name: {{ .Release.Name }}-google
+            - name: "GOOGLE_CLIENT_SECRET"
+              valueFrom:
+                secretKeyRef:
+                  key:  client-secret
+                  name: {{ .Release.Name }}-google
+            - name: "YOUTUBE_API_KEY"
+              valueFrom:
+                secretKeyRef:
+                  key:  yt-api-key
+                  name: {{ .Release.Name }}-google
+
+            # github
+            - name: "GITHUB_CLIENT_ID"
+              valueFrom:
+                secretKeyRef:
+                  key:  client-id
+                  name: {{ .Release.Name }}-github
+            - name: "GITHUB_CLIENT_SECRET"
+              valueFrom:
+                secretKeyRef:
+                  key:  client-secret
+                  name: {{ .Release.Name }}-github
+
+            # battle.net
+            - name: "BTLNET_CLIENT_ID"
+              valueFrom:
+                secretKeyRef:
+                  key:  client-id
+                  name: {{ .Release.Name }}-btlnet
+            - name: "BTLNET_CLIENT_SECRET"
+              valueFrom:
+                secretKeyRef:
+                  key:  client-secret
+                  name: {{ .Release.Name }}-btlnet
+
+            # twitch
+            - name: "TWITCH_CLIENT_ID"
+              valueFrom:
+                secretKeyRef:
+                  key:  client-id
+                  name: {{ .Release.Name }}-twitch
+            - name: "TWITCH_CLIENT_SECRET"
+              valueFrom:
+                secretKeyRef:
+                  key:  client-secret
+                  name: {{ .Release.Name }}-twitch
+
+            # facebook
+            - name: "FB_CLIENT_ID"
+              valueFrom:
+                secretKeyRef:
+                  key:  client-id
+                  name: {{ .Release.Name }}-facebook
+            - name: "FB_CLIENT_SECRET"
+              valueFrom:
+                secretKeyRef:
+                  key:  client-secret
+                  name: {{ .Release.Name }}-facebook
+
+            # cloudflare
+            - name: "CLOUDFLARE_TURNSTILE_SECRET"
+              valueFrom:
+                secretKeyRef:
+                  key:  turnstile-secret
+                  name: {{ .Release.Name }}-cloudflare
+            - name: "CLOUDFLARE_TURNSTILE_SITE_KEY"
+              valueFrom:
+                secretKeyRef:
+                  key:  turnstile-site-key
+                  name: {{ .Release.Name }}-cloudflare
+
+            # database
+            - name: "DATABASE_URL"
+              valueFrom:
+                secretKeyRef:
+                  key:  url
+                  name: {{ .Release.Name }}-database
+
+            # nextauth
+            - name: "NEXTAUTH_URL"
+              valueFrom:
+                secretKeyRef:
+                  key:  url
+                  name: {{ .Release.Name }}-nextauth
+            - name: "NEXTAUTH_SECRET"
+              valueFrom:
+                secretKeyRef:
+                  key:  secret
+                  name: {{ .Release.Name }}-nextauth
+
+            # upstash
+            - name: "UPSTASH_REDIS_REST_URL"
+              valueFrom:
+                secretKeyRef:
+                  key:  url
+                  name: {{ .Release.Name }}-upstash
+            - name: "UPSTASH_REDIS_REST_TOKEN"
+              valueFrom:
+                secretKeyRef:
+                  key:  token
+                  name: {{ .Release.Name }}-upstash
+
           ports:
             - name: http
               containerPort: {{ .Values.service.port }}
