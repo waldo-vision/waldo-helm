@@ -35,6 +35,7 @@ spec:
           imagePullPolicy: {{ .Values.image.pullPolicy }}
 
           # if any changes are made, make sure to update secret.yaml and values.yaml
+          # get vars from: https://github.com/waldo-vision/waldo/blob/master/apps/web/.env.example
           env:
             # discord
             - name: "DISCORD_CLIENT_ID"
