@@ -14,6 +14,50 @@ imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
 
+# # These are essentially the env vars passed here:
+# # https://github.com/waldo-vision/waldo/blob/master/apps/web/.env.example
+# # all of these values are stored as secrets
+# # see secret format in templates/secret.yaml
+# siteConfig:
+#   discord:
+#     # oauth
+#     client-id: ""
+#     client-secret: ""
+#   google:
+#     # oauth
+#     client-id: ""
+#     client-secret: ""
+#     # yt v3 api key
+#     yt-api-key: ""
+#   github:
+#     # oauth
+#     client-id: ""
+#     client-secret: ""
+#   btlnet:
+#     # oauth
+#     client-id: ""
+#     client-secret: ""
+#   twitch:
+#     # oauth
+#     client-id: ""
+#     client-secret: ""
+#   facebook:
+#     # oauth
+#     client-id: ""
+#     client-secret: ""
+#   cloudflare:
+#     turnstile-secret: ""
+#     turnstile-site-key: ""
+#   database:
+#     url: ""
+#   nextauth:
+#     url: ""
+#     secret: ""
+#   upstash:
+#     url: ""
+#     token: ""
+
+
 serviceAccount:
   # Specifies whether a service account should be created
   create: true
