@@ -21,37 +21,40 @@ fullnameOverride: ""
 # siteConfig:
 #   discord:
 #     # oauth
-#     client-id: ""
-#     client-secret: ""
+#     clientId: ""
+#     clientSecret: ""
 #   google:
 #     # oauth
-#     client-id: ""
-#     client-secret: ""
+#     clientId: ""
+#     clientSecret: ""
 #     # yt v3 api key
-#     yt-api-key: ""
+#     ytApiKey: ""
 #   github:
 #     # oauth
-#     client-id: ""
-#     client-secret: ""
+#     clientId: ""
+#     clientSecret: ""
 #   btlnet:
 #     # oauth
-#     client-id: ""
-#     client-secret: ""
+#     clientId: ""
+#     clientSecret: ""
 #   twitch:
 #     # oauth
-#     client-id: ""
-#     client-secret: ""
+#     clientId: ""
+#     clientSecret: ""
 #   facebook:
 #     # oauth
-#     client-id: ""
-#     client-secret: ""
+#     clientId: ""
+#     clientSecret: ""
 #   cloudflare:
-#     turnstile-secret: ""
-#     turnstile-site-key: ""
+#     turnstileSecret: ""
+#     turnstileSiteKey: ""
 #   database:
+#     # cockroachdb connection url
 #     url: ""
 #   nextauth:
+#     # website url
 #     url: ""
+#     # jwt secret
 #     secret: ""
 #   upstash:
 #     url: ""
