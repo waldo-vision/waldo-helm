@@ -25,9 +25,11 @@ secret:
 # all of these values are stored as secrets
 # see secret format in templates/secret.yaml
 #
-# These values below MUST be defined else the deployment
-# won't pull env vars as secrets. They can be blank and defined
-# in your own secrets file.
+# These values below MUST be defined else the
+# deployment won't pull env vars as secrets.
+# They can be blank and defined in your own
+# secrets file. Just remember to disable
+# "secret.useBuiltInSecret"
 env:
   # discord
   DISCORD_CLIENT_ID: ""
