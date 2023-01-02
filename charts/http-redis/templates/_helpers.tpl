@@ -1,7 +1,7 @@
 {{/*
 Expand the name of the chart.
 */}}
-{{- define "website.name" -}}
+{{- define "http-redis.name" -}}
 {{- default .Chart.Name .Values.nameOverride | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
@@ -10,7 +10,7 @@ Create a default fully qualified app name.
 We truncate at 63 chars because some Kubernetes name fields are limited to this (by the DNS naming spec).
 If release name contains chart name it will be used as a full name.
 */}}
-{{- define "website.fullname" -}}
+{{- define "http-redis.fullname" -}}
 {{- if .Values.fullnameOverride }}
 {{- .Values.fullnameOverride | trunc 63 | trimSuffix "-" }}
 {{- else }}
@@ -26,16 +26,16 @@ If release name contains chart name it will be used as a full name.
 {{/*
 Create chart name and version as used by the chart label.
 */}}
-{{- define "website.chart" -}}
+{{- define "http-redis.chart" -}}
 {{- printf "%s-%s" .Chart.Name .Chart.Version | replace "+" "_" | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
 {{/*
 Common labels
 */}}
-{{- define "website.labels" -}}
-helm.sh/chart: {{ include "website.chart" . }}
-{{ include "website.selectorLabels" . }}
+{{- define "http-redis.labels" -}}
+helm.sh/chart: {{ include "http-redis.chart" . }}
+{{ include "http-redis.selectorLabels" . }}
 {{- if .Chart.AppVersion }}
 app.kubernetes.io/version: {{ .Chart.AppVersion | quote }}
 {{- end }}
@@ -45,33 +45,18 @@ app.kubernetes.io/managed-by: {{ .Release.Service }}
 {{/*
 Selector labels
 */}}
-{{- define "website.selectorLabels" -}}
-app.kubernetes.io/name: {{ include "website.name" . }}
+{{- define "http-redis.selectorLabels" -}}
+app.kubernetes.io/name: {{ include "http-redis.name" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
 {{- end }}
 
 {{/*
 Create the name of the service account to use
 */}}
-{{- define "website.serviceAccountName" -}}
+{{- define "http-redis.serviceAccountName" -}}
 {{- if .Values.serviceAccount.create }}
-{{- default (include "website.fullname" .) .Values.serviceAccount.name }}
+{{- default (include "http-redis.fullname" .) .Values.serviceAccount.name }}
 {{- else }}
 {{- default "default" .Values.serviceAccount.name }}
 {{- end }}
-{{- end }}
-
-{{/*
-Pull env vars from values file and add to deployment env var list
-Also pairs them up with secrets
-*/}}
-{{- define "helpers.list-env-variables"}}
-{{- $secretName  := .Values.secret.name -}}
-{{- range $key, $val := .Values.env }}
-- name: {{ $key }}
-  valueFrom:
-    secretKeyRef:
-      name: {{ $secretName }}
-      key: {{ $key }}
-{{- end}}
 {{- end }}

@@ -1,14 +1,14 @@
-# Default values for website.
+# Default values for http-redis.
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
 replicaCount: 1
 
 image:
-  repository: ghcr.io/waldo-vision/web
-  # Overrides the image tag whose default is the chart appVersion.
-  # tag: ""
+  repository: hiett/serverless-redis-http
   pullPolicy: IfNotPresent
+  # # Overrides the image tag whose default is the chart appVersion.
+  # tag: ""
 
 imagePullSecrets: []
 nameOverride: ""
@@ -16,55 +16,23 @@ fullnameOverride: ""
 
 secret:
   # name of the secret
-  name: "waldo-website-secrets"
+  name: "http-redis-secrets"
   # whether to use our in built secrets file or not
   useBuiltInSecret: true
 
-# These are the env vars passed here:
-# https://github.com/waldo-vision/waldo/blob/master/apps/web/.env.example
-# all of these values are stored as secrets
-# see secret format in templates/secret.yaml
+# These are like the config values passed in the example config:
+# https://github.com/hiett/serverless-redis-http
 #
-# These values below MUST be defined else the deployment
-# won't pull env vars as secrets. They can be blank and defined
-# in your own secrets file.
-env:
-  # discord
-  DISCORD_CLIENT_ID: ""
-  DISCORD_CLIENT_SECRET: ""
-
-  # google
-  GOOGLE_CLIENT_ID: ""
-  GOOGLE_CLIENT_SECRET: ""
-
-  YOUTUBE_API_KEY: ""
-
-  GITHUB_CLIENT_ID: ""
-  GITHUB_CLIENT_SECRET: ""
-
-  BTLNET_CLIENT_ID: ""
-  BTLNET_CLIENT_SECRET: ""
-
-  TWITCH_CLIENT_ID: ""
-  TWITCH_CLIENT_SECRET: ""
-
-  FB_CLIENT_ID: ""
-  FB_CLIENT_SECRET: ""
-
-  # cloudflare
-  CLOUDFLARE_TURNSTILE_SECRET: ""
-  CLOUDFLARE_TURNSTILE_SITE_KEY: ""
-
-  # database
-  DATABASE_URL: ""
-
-  # next auth
-  NEXTAUTH_URL: ""
-  NEXTAUTH_SECRET: ""
-
-  # upstash
-  UPSTASH_REDIS_REST_URL: ""
-  UPSTASH_REDIS_REST_TOKEN: ""
+# If you wish to define your own secret, make sure to follow
+# the format our templated secrets file
+configFile: |
+  {
+    "example_token": {
+        "srh_id": "some_unique_identifier",
+        "connection_string": "redis://localhost:6379",
+        "max_connections": 3
+    }
+  }
 
 
 serviceAccount:
@@ -74,7 +42,7 @@ serviceAccount:
   annotations: {}
   # The name of the service account to use.
   # If not set and create is true, a name is generated using the fullname template
-  name: "waldo-website"
+  name: ""
 
 podAnnotations: {}
 
@@ -93,7 +61,7 @@ securityContext:
 
 service:
   type: ClusterIP
-  port: 3000
+  port: 8079
 
 ingress:
   enabled: false
