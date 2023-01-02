@@ -14,3 +14,8 @@ version: 0.0.4
 
 # app version its targeting
 appVersion: "0.0.1-alpha.2"
+
+
+keywords:
+  - website
+  - waldo-vision

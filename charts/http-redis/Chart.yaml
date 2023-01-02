@@ -13,3 +13,8 @@ version: 0.0.1
 
 # app version its targeting
 appVersion: "0.0.4"
+
+keywords:
+  - redis
+  - serverless
+  - upstash
