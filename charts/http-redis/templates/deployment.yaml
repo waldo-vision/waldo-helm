@@ -47,6 +47,14 @@ spec:
               port: http
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
+          volumeMounts:
+            - name: secrets-files
+              mountPath: "/app/srh-config"
+              # subPath: tokens.json
+      volumes:
+        - name: secrets-files
+          secret:
+            secretName: {{ .Values.secret.name }} # name of the Secret
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}

@@ -14,6 +14,27 @@ imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
 
+secret:
+  # name of the secret
+  name: "http-redis-secrets"
+  # whether to use our in built secrets file or not
+  useBuiltInSecret: true
+
+# These are like the config values passed in the example config:
+# https://github.com/hiett/serverless-redis-http
+#
+# If you wish to define your own secret, make sure to follow
+# the format our templated secrets file
+configFile: |
+  {
+    "example_token": {
+        "srh_id": "some_unique_identifier",
+        "connection_string": "redis://localhost:6379",
+        "max_connections": 3
+    }
+  }
+
+
 serviceAccount:
   # Specifies whether a service account should be created
   create: true
@@ -25,10 +46,12 @@ serviceAccount:
 
 podAnnotations: {}
 
-podSecurityContext: {}
+podSecurityContext:
+  {}
   # fsGroup: 2000
 
-securityContext: {}
+securityContext:
+  {}
   # capabilities:
   #   drop:
   #   - ALL
@@ -43,7 +66,8 @@ service:
 ingress:
   enabled: false
   className: ""
-  annotations: {}
+  annotations:
+    {}
     # kubernetes.io/ingress.class: nginx
     # kubernetes.io/tls-acme: "true"
   hosts:
@@ -56,7 +80,8 @@ ingress:
   #    hosts:
   #      - chart-example.local
 
-resources: {}
+resources:
+  {}
   # We usually recommend not to specify default resources and to leave this as a conscious
   # choice for the user. This also increases chances charts run on environments with little
   # resources, such as Minikube. If you do want to specify resources, uncomment the following
