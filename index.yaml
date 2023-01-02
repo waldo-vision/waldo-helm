@@ -1,6 +1,37 @@
 apiVersion: v1
 entries:
+  http-redis:
+  - apiVersion: v2
+    appVersion: 0.0.4
+    created: "2023-01-02T00:28:54.243591543Z"
+    description: HTTP-based Redis pooler. Access Redis from serverless without overloading
+      connection limits!
+    digest: 5c9af3cf97ed80a22ab248ce7555e16a5891de19ea6043f4c81748bcc8a4df76
+    home: https://github.com/hiett/serverless-redis-http
+    name: http-redis
+    sources:
+    - https://github.com/waldo-vision/waldo-helm/tree/main/charts/http-redis
+    - https://github.com/hiett/serverless-redis-http
+    type: application
+    urls:
+    - https://github.com/waldo-vision/waldo-helm/releases/download/http-redis-0.0.1/http-redis-0.0.1.tgz
+    version: 0.0.1
   website:
+  - apiVersion: v2
+    appVersion: 0.0.1-alpha.2
+    created: "2023-01-02T00:28:54.43979987Z"
+    description: The main Waldo website
+    digest: d734ef6de0ac94ad50ce2988bbe18923ba67380667b00088d9073ce1bcb888f8
+    home: https://waldo.vision
+    icon: https://raw.githubusercontent.com/waldo-vision/waldo/master/apps/web/public/android-chrome-256x256.png
+    name: website
+    sources:
+    - https://github.com/waldo-vision/waldo-helm/tree/main/charts/website
+    - https://github.com/waldo-vision/waldo/tree/master/apps/web
+    type: application
+    urls:
+    - https://github.com/waldo-vision/waldo-helm/releases/download/website-0.0.4/website-0.0.4.tgz
+    version: 0.0.4
   - apiVersion: v2
     appVersion: 0.0.1-alpha.2
     created: "2023-01-01T04:23:17.503017215Z"
@@ -11,4 +42,4 @@ entries:
     urls:
     - https://github.com/waldo-vision/waldo-helm/releases/download/website-0.0.3/website-0.0.3.tgz
     version: 0.0.3
-generated: "2023-01-01T04:23:17.503021515Z"
+generated: "2023-01-02T00:28:54.439808571Z"
