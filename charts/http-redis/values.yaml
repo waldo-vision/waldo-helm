@@ -19,7 +19,7 @@ secret:
   name: "http-redis-secrets"
 
   # redis connection url
-  redisUrl: "redis://{{ .Release.Name }}-redis.{{ .Release.Namespace }}.svc.cluster.local:6379"
+  redisUrl: "redis://{{ .Release.Name }}-master.{{ .Release.Namespace }}.svc.cluster.local:6379"
 
   # connection token
   connectionToken: "{{ randAlphaNum 50 }}"
@@ -37,13 +37,12 @@ secret:
   # templating features
   configFile: |
     {
-      "{{ .Values.secret.connectionToken }}": {
+      "{{ tpl .Values.secret.connectionToken . }}": {
         "srh_id": "{{ randAlphaNum 50 }}",
-        "connection_string": "{{ .Values.secret.redisUrl }}",
+        "connection_string": "{{ tpl .Values.secret.redisUrl . }}",
         "max_connections": 3
       }
     }
-
 
 serviceAccount:
   # Specifies whether a service account should be created
@@ -71,7 +70,7 @@ securityContext:
 
 service:
   type: ClusterIP
-  port: 8079
+  port: 80
 
 ingress:
   enabled: false
