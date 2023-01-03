@@ -18,3 +18,9 @@ keywords:
   - redis
   - serverless
   - upstash
+
+dependencies:
+  - name: redis
+    repository: https://charts.bitnami.com/bitnami
+    version: 17.4.0
+    alias: redis
