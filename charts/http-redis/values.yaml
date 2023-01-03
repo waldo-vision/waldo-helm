@@ -17,22 +17,32 @@ fullnameOverride: ""
 secret:
   # name of the secret
   name: "http-redis-secrets"
+
+  # redis connection url
+  redisUrl: "redis://{{ .Release.Name }}-redis.{{ .Release.Namespace }}.svc.cluster.local:6379"
+
+  # connection token
+  connectionToken: "{{ randAlphaNum 50 }}"
+
   # whether to use our in built secrets file or not
   useBuiltInSecret: true
 
-# These are like the config values passed in the example config:
-# https://github.com/hiett/serverless-redis-http
-#
-# If you wish to define your own secret, make sure to follow
-# the format our templated secrets file
-configFile: |
-  {
-    "example_token": {
-        "srh_id": "some_unique_identifier",
-        "connection_string": "redis://localhost:6379",
+  # These are like the config values passed in the example config:
+  # https://github.com/hiett/serverless-redis-http
+  #
+  # If you wish to define your own secret, make sure to follow
+  # the format our templated secrets file
+  #
+  # This config file is templated, so it has full access to helm's
+  # templating features
+  configFile: |
+    {
+      "{{ .Values.secret.connectionToken }}": {
+        "srh_id": "{{ randAlphaNum 50 }}",
+        "connection_string": "{{ .Values.secret.redisUrl }}",
         "max_connections": 3
+      }
     }
-  }
 
 
 serviceAccount:
