@@ -9,7 +9,18 @@ sources:
   - https://github.com/waldo-vision/waldo-helm/tree/main/charts/http-redis
   - https://github.com/hiett/serverless-redis-http
 # chart version, should follow semver
-version: 0.0.1
+version: 0.0.2
 
 # app version its targeting
 appVersion: "0.0.4"
+
+keywords:
+  - redis
+  - serverless
+  - upstash
+
+dependencies:
+  - name: redis
+    repository: https://charts.bitnami.com/bitnami
+    version: 17.4.0
+    alias: redis
