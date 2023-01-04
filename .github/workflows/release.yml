@@ -28,6 +28,12 @@ jobs:
         with:
           version: v3.10.0
 
+      # https://github.com/helm/chart-releaser/issues/135
+      - name: Add chart repo dependencies
+        run: |
+          helm repo add bitnami https://charts.bitnami.com/bitnami
+          helm repo add waldo https://waldo-vision.github.io/waldo-helm/
+
       - name: Run chart-releaser
         uses: helm/chart-releaser-action@v1.4.1
         env:
