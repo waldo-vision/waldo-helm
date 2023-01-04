@@ -3,6 +3,30 @@ entries:
   http-redis:
   - apiVersion: v2
     appVersion: 0.0.4
+    created: "2023-01-04T20:24:14.573617034Z"
+    dependencies:
+    - alias: redis
+      name: redis
+      repository: https://charts.bitnami.com/bitnami
+      version: 17.4.0
+    description: HTTP-based Redis pooler. Access Redis from serverless without overloading
+      connection limits!
+    digest: 07f061d5fb6747b6660710e1bd38d0bf760083b8e22f5149146ee6644e19ff7a
+    home: https://github.com/hiett/serverless-redis-http
+    keywords:
+    - redis
+    - serverless
+    - upstash
+    name: http-redis
+    sources:
+    - https://github.com/waldo-vision/waldo-helm/tree/main/charts/http-redis
+    - https://github.com/hiett/serverless-redis-http
+    type: application
+    urls:
+    - https://github.com/waldo-vision/waldo-helm/releases/download/http-redis-0.0.2/http-redis-0.0.2.tgz
+    version: 0.0.2
+  - apiVersion: v2
+    appVersion: 0.0.4
     created: "2023-01-02T00:28:54.243591543Z"
     description: HTTP-based Redis pooler. Access Redis from serverless without overloading
       connection limits!
@@ -15,6 +39,27 @@ entries:
     type: application
     urls:
     - https://github.com/waldo-vision/waldo-helm/releases/download/http-redis-0.0.1/http-redis-0.0.1.tgz
+    version: 0.0.1
+  umami:
+  - apiVersion: v2
+    appVersion: postgresql-v1.39.5
+    created: "2023-01-04T20:24:14.717947639Z"
+    description: Umami is a simple, fast, privacy-focused alternative to Google Analytics.
+    digest: 4722742bd1840717d5a03fcf78cf7ac91c41cfb4d770d9eaba2c46fb0757d036
+    home: https://umami.is/
+    icon: https://raw.githubusercontent.com/umami-software/umami/master/public/android-chrome-512x512.png
+    keywords:
+    - umami
+    - analytics
+    - google-analytics
+    - privacy
+    name: umami
+    sources:
+    - https://github.com/waldo-vision/waldo-helm/tree/main/charts/umami
+    - https://github.com/umami-software/umami
+    type: application
+    urls:
+    - https://github.com/waldo-vision/waldo-helm/releases/download/umami-0.0.1/umami-0.0.1.tgz
     version: 0.0.1
   website:
   - apiVersion: v2
@@ -42,4 +87,4 @@ entries:
     urls:
     - https://github.com/waldo-vision/waldo-helm/releases/download/website-0.0.3/website-0.0.3.tgz
     version: 0.0.3
-generated: "2023-01-02T00:28:54.439808571Z"
+generated: "2023-01-04T20:24:14.876330827Z"
