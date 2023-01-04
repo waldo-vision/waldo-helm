@@ -34,14 +34,13 @@ spec:
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           env:
-            - name: HASH_SALT
-              value: {{ randAlphaNum 50 | quote }}
             {{- include "helpers.list-env-variables" . | nindent 12 }}
           ports:
             - name: http
               containerPort: {{ .Values.service.port }}
               protocol: TCP
           livenessProbe:
+            initialDelaySeconds: 15
             httpGet:
               path: /
               port: http

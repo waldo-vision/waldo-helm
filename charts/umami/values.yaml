@@ -32,6 +32,9 @@ secret:
 # "secret.useBuiltInSecret"
 env:
   DATABASE_URL: ""
+  # don't worry about leaving this unset, a default
+  # value will be provided if useBuiltInSecret=true
+  HASH_SALT: ""
 
 serviceAccount:
   # Specifies whether a service account should be created
