@@ -64,6 +64,29 @@ entries:
   website:
   - apiVersion: v2
     appVersion: 0.0.1-alpha.2
+    created: "2023-01-06T17:59:38.352613418Z"
+    dependencies:
+    - alias: http-redis
+      name: http-redis
+      repository: https://waldo-vision.github.io/waldo-helm/
+      version: '*'
+    description: The main Waldo website
+    digest: fa3076f475961158d1b1b90c370be241f8bbd2189a260406ca7d141a5e49a2b4
+    home: https://waldo.vision
+    icon: https://raw.githubusercontent.com/waldo-vision/waldo/master/apps/web/public/android-chrome-256x256.png
+    keywords:
+    - website
+    - waldo-vision
+    name: website
+    sources:
+    - https://github.com/waldo-vision/waldo-helm/tree/main/charts/website
+    - https://github.com/waldo-vision/waldo/tree/master/apps/web
+    type: application
+    urls:
+    - https://github.com/waldo-vision/waldo-helm/releases/download/website-0.0.5/website-0.0.5.tgz
+    version: 0.0.5
+  - apiVersion: v2
+    appVersion: 0.0.1-alpha.2
     created: "2023-01-02T00:28:54.43979987Z"
     description: The main Waldo website
     digest: d734ef6de0ac94ad50ce2988bbe18923ba67380667b00088d9073ce1bcb888f8
@@ -87,4 +110,4 @@ entries:
     urls:
     - https://github.com/waldo-vision/waldo-helm/releases/download/website-0.0.3/website-0.0.3.tgz
     version: 0.0.3
-generated: "2023-01-04T20:24:14.876330827Z"
+generated: "2023-01-06T17:59:38.35290253Z"
