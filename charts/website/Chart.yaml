@@ -10,12 +10,17 @@ sources:
   - https://github.com/waldo-vision/waldo/tree/master/apps/web
 
 # chart version, should follow semver
-version: 0.0.4
+version: 0.0.5
 
 # app version its targeting
 appVersion: "0.0.1-alpha.2"
 
-
 keywords:
   - website
   - waldo-vision
+
+dependencies:
+  - name: http-redis
+    repository: https://waldo-vision.github.io/waldo-helm/
+    version: "*"
+    alias: http-redis

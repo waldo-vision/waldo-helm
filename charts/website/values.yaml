@@ -68,6 +68,13 @@ env:
   UPSTASH_REDIS_REST_URL: ""
   UPSTASH_REDIS_REST_TOKEN: ""
 
+"http-redis":
+  secret:
+    # just needs a slight change from the default value
+    redisUrl: "redis://{{ .Release.Name }}-redis-master.{{ .Release.Namespace }}.svc.cluster.local:6379"
+
+    # should be the same value as UPSTASH_REDIS_REST_TOKEN
+    connectionToken: ""
 
 serviceAccount:
   # Specifies whether a service account should be created
