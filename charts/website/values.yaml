@@ -70,6 +70,8 @@ env:
 
 "http-redis":
   secret:
+    useBuiltInSecret: true
+
     # just needs a slight change from the default value
     redisUrl: "redis://{{ .Release.Name }}-redis-master.{{ .Release.Namespace }}.svc.cluster.local:6379"
 
