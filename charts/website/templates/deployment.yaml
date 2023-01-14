@@ -50,6 +50,14 @@ spec:
               port: http
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
+      initContainers:
+        - name: {{ .Chart.Name }}-migrate
+          image: "{{ .Values.migrateImage.repository }}:{{ .Values.migrateImage.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.migrateImage.pullPolicy }}
+          # just use the env vars from base image
+          env:
+            {{- include "helpers.list-env-variables" . | nindent 12 }}
+
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}

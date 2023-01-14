@@ -10,6 +10,12 @@ image:
   # tag: ""
   pullPolicy: IfNotPresent
 
+migrateImage:
+  repository: ghcr.io/waldo-vision/migrate
+  # Overrides the image tag whose default is the chart appVersion.
+  # tag: ""
+  pullPolicy: IfNotPresent
+
 imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
