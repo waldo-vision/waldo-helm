@@ -1,6 +1,0 @@
-dependencies:
-- name: http-redis
-  repository: https://waldo-vision.github.io/waldo-helm/
-  version: 0.0.2
-digest: sha256:1f04976cc449e9ef7717b6739926b935b59e2b8c102ab0ee740629c15de8cb56
-generated: "2023-01-04T15:43:10.344243069-05:00"
