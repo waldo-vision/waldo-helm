@@ -63,6 +63,24 @@ entries:
     version: 0.0.1
   website:
   - apiVersion: v2
+    appVersion: 0.1.8
+    created: "2023-03-27T03:34:07.560652472Z"
+    description: The main Waldo website
+    digest: 332de6a29f8ac9faf47bb0535f28b510cda4aeb8823e4ffadd6766c27e476d94
+    home: https://waldo.vision
+    icon: https://raw.githubusercontent.com/waldo-vision/waldo/master/apps/web/public/android-chrome-256x256.png
+    keywords:
+    - website
+    - waldo-vision
+    name: website
+    sources:
+    - https://github.com/waldo-vision/waldo-helm/tree/main/charts/website
+    - https://github.com/waldo-vision/waldo/tree/master/apps/web
+    type: application
+    urls:
+    - https://github.com/waldo-vision/waldo-helm/releases/download/website-0.22.0/website-0.22.0.tgz
+    version: 0.22.0
+  - apiVersion: v2
     appVersion: 0.1.7
     created: "2023-03-27T03:20:10.790330867Z"
     description: The main Waldo website
@@ -541,4 +559,4 @@ entries:
     urls:
     - https://github.com/waldo-vision/waldo-helm/releases/download/website-0.0.3/website-0.0.3.tgz
     version: 0.0.3
-generated: "2023-03-27T03:20:10.790503469Z"
+generated: "2023-03-27T03:34:07.560834972Z"
