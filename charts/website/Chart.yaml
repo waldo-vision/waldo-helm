@@ -10,10 +10,10 @@ sources:
   - https://github.com/waldo-vision/waldo/tree/master/apps/web
 
 # chart version, should follow semver
-version: 0.19.0
+version: 0.20.0
 
 # app version its targeting
-appVersion: "0.1.5"
+appVersion: "0.1.6"
 
 keywords:
   - website
