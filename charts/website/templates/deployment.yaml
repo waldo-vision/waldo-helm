@@ -35,6 +35,8 @@ spec:
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           # auto pull env vars from values file
           env:
+            - name: SENTRY_RELEASE
+              value: {{ .Values.image.tag | default .Chart.AppVersion }}
             {{- include "helpers.list-env-variables" . | nindent 12 }}
           ports:
             - name: http
